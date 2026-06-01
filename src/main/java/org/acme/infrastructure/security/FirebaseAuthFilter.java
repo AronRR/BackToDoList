@@ -53,7 +53,7 @@ public class FirebaseAuthFilter implements ContainerRequestFilter {
         try {
             FirebaseToken decodedToken= FirebaseAuth
                     .getInstance()
-                    .verifyIdToken(token,true);
+                    .verifyIdToken(token);
             Optional<User> userOptional= userRepository.findByFirebaseUuid(decodedToken.getUid());
             if(userOptional.isEmpty()){
                 requestContext.abortWith(
