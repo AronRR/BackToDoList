@@ -19,7 +19,7 @@ public class FirebaseConfig {
         try {
             if (FirebaseApp.getApps().isEmpty()) {
                 InputStream serviceAccount;
-                String filePath = System.getenv("FIREBASE_CREDENTIALS_PATH");
+                String filePath = System.getenv("FIREBASE_CREDENTIALS");
                 if (filePath != null && !filePath.isBlank()) {
                     System.out.println("Firebase: loading from file " + filePath);
                     serviceAccount = new FileInputStream(filePath);
