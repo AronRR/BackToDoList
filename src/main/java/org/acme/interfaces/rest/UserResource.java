@@ -1,6 +1,5 @@
 package org.acme.interfaces.rest;
 
-import com.google.firebase.FirebaseApp;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
@@ -40,18 +39,5 @@ public class UserResource {
     public Response testEndpoint(){
         System.out.println("En el endpoint: "+authContext.getUser().getId());
         return Response.ok("Hello").build();
-    }
-}
-
-@Path("/health")
-@Produces(MediaType.APPLICATION_JSON)
-class HealthResource {
-    @GET
-    public Response health() {
-        boolean firebaseOk = !FirebaseApp.getApps().isEmpty();
-        String apps = FirebaseApp.getApps().stream()
-                .map(a -> a.getName())
-                .collect(java.util.stream.Collectors.joining(","));
-        return Response.ok("{\"firebase_initialized\":" + firebaseOk + ",\"apps\":\"" + apps + "\"}").build();
     }
 }
