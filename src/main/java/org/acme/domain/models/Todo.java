@@ -1,5 +1,6 @@
 package org.acme.domain.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -11,6 +12,8 @@ public class Todo {
     private LocalDateTime createdAt;
     private UUID userId;
     private UUID listaId;
+    private LocalDate dueDate;
+    private String priority;
 
     public Todo(){
 
@@ -87,5 +90,21 @@ public class Todo {
 
     public void setListaId(UUID listaId) {
         this.listaId = listaId;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 }

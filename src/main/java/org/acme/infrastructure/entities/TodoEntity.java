@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -31,6 +32,12 @@ public class TodoEntity {
 
     @Column(name="lista_id")
     private UUID listaId;
+
+    @Column(name="due_date")
+    private LocalDate dueDate;
+
+    @Column(length = 10)
+    private String priority;
 
     public TodoEntity() {
 
@@ -90,5 +97,21 @@ public class TodoEntity {
 
     public void setListaId(UUID listaId) {
         this.listaId = listaId;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 }

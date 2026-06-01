@@ -43,6 +43,12 @@ public class UpdateTodoUseCase {
         if (dto.getListaId() != null) {
             todo.setListaId(dto.getListaId());
         }
+        if (dto.getPriority() != null) {
+            todo.setPriority(dto.getPriority());
+        }
+        if (dto.getDueDate() != null) {
+            todo.setDueDate(dto.getDueDate());
+        }
 
         return todoRepository.update(todo);
     }

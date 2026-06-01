@@ -31,6 +31,8 @@ public class CreateTodoUseCase {
         todo.setCreatedAt(LocalDateTime.now());
         todo.setUserId(authContext.getUser().getId());
         todo.setListaId(dto.getListaId());
+        todo.setDueDate(dto.getDueDate());
+        todo.setPriority(dto.getPriority());
         return todoRepository.save(todo);
     }
 }

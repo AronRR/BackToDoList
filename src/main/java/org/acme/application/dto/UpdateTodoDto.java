@@ -1,5 +1,6 @@
 package org.acme.application.dto;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class UpdateTodoDto {
@@ -7,6 +8,8 @@ public class UpdateTodoDto {
     private String description;
     private Boolean completed;
     private UUID listaId;
+    private String priority;
+    private LocalDate dueDate;
 
     public UpdateTodoDto() {}
 
@@ -40,5 +43,21 @@ public class UpdateTodoDto {
 
     public void setListaId(UUID listaId) {
         this.listaId = listaId;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 }

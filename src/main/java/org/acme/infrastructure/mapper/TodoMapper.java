@@ -16,6 +16,8 @@ public class TodoMapper {
         todo.setCreatedAt(entity.getCreatedAt());
         todo.setUserId(entity.getUserId());
         todo.setListaId(entity.getListaId());
+        todo.setDueDate(entity.getDueDate());
+        todo.setPriority(entity.getPriority());
         return todo;
     }
 
@@ -28,6 +30,8 @@ public class TodoMapper {
         entity.setCreatedAt(todo.getCreatedAt());
         entity.setUserId(todo.getUserId());
         entity.setListaId(todo.getListaId());
+        entity.setDueDate(todo.getDueDate());
+        entity.setPriority(todo.getPriority());
         return entity;
     }
 }
