@@ -20,6 +20,7 @@ Backend REST desarrollado con Quarkus (Java) como parte del proyecto final del m
 | POST | `/listas` | Crear lista |
 | PUT | `/listas/{id}` | Editar lista |
 | DELETE | `/listas/{id}` | Eliminar lista |
+| GET | `/listas/{id}` | Obtener lista por ID |
 | GET | `/listas/{id}/todos` | Tareas de una lista |
 | GET | `/todos` | Todas las tareas del usuario |
 | POST | `/todos` | Crear tarea |
