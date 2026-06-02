@@ -8,6 +8,7 @@ import org.acme.application.dto.CreateListaDto;
 import org.acme.application.dto.UpdateListaDto;
 import org.acme.application.usecase.CreateListaUseCase;
 import org.acme.application.usecase.DeleteListaUseCase;
+import org.acme.application.usecase.GetListaByIdUseCase;
 import org.acme.application.usecase.GetUserListasUseCase;
 import org.acme.application.usecase.UpdateListaUseCase;
 import org.acme.application.usecase.GetListaTodosUseCase;
@@ -21,6 +22,7 @@ public class ListaResource {
 
     private final CreateListaUseCase createListaUseCase;
     private final GetUserListasUseCase getUserListasUseCase;
+    private final GetListaByIdUseCase getListaByIdUseCase;
     private final UpdateListaUseCase updateListaUseCase;
     private final DeleteListaUseCase deleteListaUseCase;
     private final GetListaTodosUseCase getListaTodosUseCase;
@@ -28,11 +30,13 @@ public class ListaResource {
     @Inject
     public ListaResource(CreateListaUseCase createListaUseCase,
                          GetUserListasUseCase getUserListasUseCase,
+                         GetListaByIdUseCase getListaByIdUseCase,
                          UpdateListaUseCase updateListaUseCase,
                          DeleteListaUseCase deleteListaUseCase,
                          GetListaTodosUseCase getListaTodosUseCase) {
         this.createListaUseCase = createListaUseCase;
         this.getUserListasUseCase = getUserListasUseCase;
+        this.getListaByIdUseCase = getListaByIdUseCase;
         this.updateListaUseCase = updateListaUseCase;
         this.deleteListaUseCase = deleteListaUseCase;
         this.getListaTodosUseCase = getListaTodosUseCase;
@@ -48,6 +52,12 @@ public class ListaResource {
     @GET
     public Response getUserListas() {
         return Response.ok(getUserListasUseCase.execute()).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response getListaById(@PathParam("id") UUID id) {
+        return Response.ok(getListaByIdUseCase.execute(id)).build();
     }
 
     @PUT
