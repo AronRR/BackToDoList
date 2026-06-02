@@ -14,5 +14,6 @@ COPY --from=build /app/target/quarkus-app/quarkus/ quarkus/
 EXPOSE 8080
 ENTRYPOINT ["java", \
   "-Dquarkus.http.host=0.0.0.0", \
+  "-Dquarkus.http.cors=false", \
   "-Djava.util.logging.manager=org.jboss.logmanager.LogManager", \
   "-jar", "quarkus-run.jar"]
